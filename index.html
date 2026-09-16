@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payback Gym — Defining Fitness | Madhapar, Bhuj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#f7f4ee;
+    --charcoal:#efe9dd;
+    --charcoal-2:#ffffff;
+    --steel:#ddd4c2;
+    --bone:#1c1a15;
+    --ash:#6b6255;
+    --ash-dim:#8c8272;
+    --brass:#a9761f;
+    --brass-bright:#8c6117;
+    --brass-dim:#e6cd9c;
+    --danger:#b5533f;
+    --good:#6f8f5c;
+    --font-display:'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    --font-body:'Inter', -apple-system, 'Segoe UI', sans-serif;
+    --radius-s:3px;
+    --radius-m:6px;
+    --max:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;}
+  ul{list-style:none;}
+  input,select,textarea{font-family:inherit;}
+  ::selection{background:var(--brass);color:var(--ink);}
+  :focus-visible{outline:2px solid var(--brass-bright);outline-offset:3px;}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  .eyebrow{
+    font-size:12.5px;
+    letter-spacing:.14em;
+    color:var(--brass);
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+
+  h1,h2,h3,.disp{
+    font-family:var(--font-display);
+    font-weight:800;
+    letter-spacing:.01em;
+    line-height:.98;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+
+  h2{font-size:clamp(34px,5.2vw,58px);}
+  h3{font-size:clamp(20px,2.4vw,26px);font-weight:700;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:16px 30px;
+    font-weight:700;font-size:14px;letter-spacing:.04em;
+    border-radius:2px;
+    transition:transform .18s ease, background .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--brass);color:var(--ink);}
+  .btn-primary:hover{background:var(--brass-bright);transform:translateY(-1px);}
+  .btn-outline{background:transparent;color:var(--bone);border:1.5px solid var(--steel);}
+  .btn-outline:hover{border-color:var(--brass);color:var(--brass-bright);}
+  .btn-block{width:100%;}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(247,244,238,.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(0,0,0,.07);
+    transition:background .3s ease;
+  }
+  .nav-inner{
+    max-width:var(--max);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-weight:800;font-size:22px;letter-spacing:.02em;
+    text-transform:uppercase;
+    display:flex;flex-direction:column;line-height:.95;
+  }
+  .brand small{
+    font-family:var(--font-body);font-weight:600;font-size:9px;
+    letter-spacing:.2em;color:var(--brass);text-transform:uppercase;margin-top:3px;
+  }
+  .nav-links{display:flex;gap:34px;align-items:center;}
+  .nav-links a{font-size:13.5px;font-weight:600;color:var(--ash);letter-spacing:.03em;transition:color .18s;}
+  .nav-links a:hover{color:var(--bone);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-cta .btn{padding:11px 22px;font-size:12.5px;}
+  .nav-burger{display:none;background:none;color:var(--bone);font-size:26px;}
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-cta .btn-outline{display:none;}
+    .nav-burger{display:block;}
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    padding:140px 0 90px;
+    background:
+      radial-gradient(ellipse 90% 60% at 30% 0%, rgba(169,118,31,.10), transparent 60%),
+      repeating-linear-gradient(115deg, rgba(0,0,0,.028) 0px, rgba(0,0,0,.028) 1px, transparent 1px, transparent 64px),
+      linear-gradient(180deg, #f2eee3 0%, #f9f6ef 55%, #f2eee3 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(0deg, rgba(247,244,238,1) 0%, rgba(247,244,238,.25) 40%, transparent 65%);
+    pointer-events:none;
+  }
+  .hero-plate{
+    position:absolute;right:-8%;top:8%;
+    width:min(60vw,780px);aspect-ratio:1/1;
+    border-radius:50%;
+    border:1px solid rgba(169,118,31,.28);
+    opacity:.6;
+  }
+  .hero-plate::before{
+    content:"";position:absolute;inset:60px;
+    border-radius:50%;border:1px solid rgba(169,118,31,.22);
+  }
+  .hero-plate::after{
+    content:"";position:absolute;inset:120px;
+    border-radius:50%;border:1px solid rgba(169,118,31,.16);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:var(--max);margin:0 auto;padding:0 28px;width:100%;}
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--ash);
+    margin-bottom:26px;opacity:0;
+    animation:riseIn .8s .1s ease forwards;
+  }
+  .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--brass);}
+  h1.hero-h{
+    font-size:clamp(46px,8.6vw,108px);
+    color:var(--bone);
+    max-width:16ch;
+    opacity:0;
+    animation:riseIn .9s .25s ease forwards;
+  }
+  h1.hero-h span{display:block;}
+  h1.hero-h .accent{color:var(--brass);}
+  .hero-sub{
+    font-size:clamp(16px,1.8vw,20px);
+    color:var(--ash);font-weight:500;
+    margin:22px 0 40px;max-width:44ch;
+    opacity:0;animation:riseIn .9s .4s ease forwards;
+  }
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;opacity:0;animation:riseIn .9s .55s ease forwards;}
+  @keyframes riseIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+  .trust-bar{
+    margin-top:56px;
+    display:flex;gap:0;flex-wrap:wrap;
+    border-top:1px solid rgba(0,0,0,.1);
+    padding-top:26px;
+    opacity:0;animation:riseIn .9s .7s ease forwards;
+  }
+  .trust-item{
+    padding-right:44px;margin-right:44px;
+    border-right:1px solid rgba(0,0,0,.1);
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item .num{font-family:var(--font-display);font-size:26px;color:var(--bone);font-weight:800;}
+  .trust-item .lbl{font-size:12px;color:var(--ash-dim);letter-spacing:.04em;margin-top:2px;}
+  @media(max-width:640px){
+    .trust-item{padding-right:22px;margin-right:22px;}
+  }
+
+  /* ===== SECTION shell ===== */
+  section{padding:110px 0;position:relative;}
+  @media(max-width:640px){section{padding:76px 0;}}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head p{color:var(--ash);font-size:16.5px;margin-top:16px;max-width:52ch;}
+  .alt-bg{background:var(--charcoal);}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ===== ABOUT ===== */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  @media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:44px;}}
+  .about-visual{
+    position:relative;aspect-ratio:4/5;border-radius:var(--radius-m);overflow:hidden;
+    background:
+      linear-gradient(160deg, #efe8d8 0%, #e3dac4 100%);
+    border:1px solid var(--steel);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .about-visual .mark{
+    font-family:var(--font-display);font-size:120px;color:rgba(169,118,31,.18);font-weight:900;
+  }
+  .about-visual .frame-label{
+    position:absolute;bottom:18px;left:18px;font-size:11px;color:var(--ash-dim);letter-spacing:.08em;
+  }
+  .about-text p{color:var(--ash);font-size:16.5px;margin-bottom:18px;}
+  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:36px;background:var(--steel);border:1px solid var(--steel);border-radius:var(--radius-s);overflow:hidden;}
+  .stat-card{background:var(--ink);padding:22px 20px;}
+  .stat-card .n{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--brass);}
+  .stat-card .l{font-size:13px;color:var(--ash);margin-top:4px;}
+
+  /* ===== PROGRAMS ===== */
+  .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:960px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.card-grid{grid-template-columns:1fr;}}
+  .prog-card{
+    background:var(--ink);border:1px solid var(--steel);border-radius:var(--radius-m);
+    padding:30px 26px;transition:border-color .2s ease, transform .2s ease;
+    display:flex;flex-direction:column;
+  }
+  .prog-card:hover{border-color:var(--brass);transform:translateY(-3px);}
+  .prog-icon{
+    width:46px;height:46px;border-radius:50%;
+    background:rgba(198,149,44,.09);border:1px solid rgba(198,149,44,.25);
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--brass);
+  }
+  .prog-card h3{margin-bottom:10px;}
+  .prog-card p{color:var(--ash);font-size:14.5px;flex:1;}
+  .prog-card .card-link{
+    margin-top:20px;font-size:13px;font-weight:700;color:var(--brass);
+    letter-spacing:.03em;padding-top:16px;border-top:1px solid var(--steel);
+  }
+
+  /* ===== BMI ===== */
+  .bmi-panel{
+    background:var(--charcoal-2);border:1px solid var(--steel);border-radius:var(--radius-m);
+    padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:56px;
+  }
+  @media(max-width:900px){.bmi-panel{grid-template-columns:1fr;padding:30px 24px;gap:36px;}}
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-size:12.5px;color:var(--ash);margin-bottom:8px;letter-spacing:.03em;font-weight:600;}
+  .field input, .field select{
+    width:100%;background:var(--ink);border:1px solid var(--steel);color:var(--bone);
+    padding:13px 14px;border-radius:var(--radius-s);font-size:15px;transition:border-color .18s;
+  }
+  .field input:focus, .field select:focus{border-color:var(--brass);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  #bmiForm .btn{margin-top:8px;}
+
+  .bmi-result{display:flex;flex-direction:column;justify-content:center;}
+  .bmi-result .placeholder{color:var(--ash-dim);font-size:14.5px;}
+  .bmi-score{font-family:var(--font-display);font-size:76px;font-weight:800;color:var(--bone);line-height:1;}
+  .bmi-cat{
+    display:inline-block;margin-top:12px;padding:7px 16px;border-radius:20px;
+    font-size:12.5px;font-weight:700;letter-spacing:.03em;
+  }
+  .cat-under{background:rgba(74,118,168,.13);color:#2f5680;}
+  .cat-normal{background:rgba(111,143,92,.15);color:#3f5c2f;}
+  .cat-over{background:rgba(169,118,31,.15);color:#8c6117;}
+  .cat-obese{background:rgba(181,83,63,.14);color:#8f3c2b;}
+  .bmi-explain{color:var(--ash);font-size:14.5px;margin-top:16px;max-width:42ch;}
+  .bmi-scale{margin-top:26px;height:8px;border-radius:4px;overflow:hidden;display:flex;position:relative;}
+  .bmi-scale .seg{height:100%;}
+  .bmi-scale .marker{
+    position:absolute;top:-5px;width:2px;height:18px;background:var(--bone);
+    transition:left .4s ease;
+  }
+  .bmi-disclaimer{
+    margin-top:30px;font-size:12.5px;color:var(--ash-dim);border-top:1px solid var(--steel);
+    padding-top:18px;line-height:1.6;
+  }
+  .bmi-minor-note{
+    background:rgba(198,149,44,.08);border:1px solid rgba(198,149,44,.25);
+    padding:16px 18px;border-radius:var(--radius-s);font-size:14px;color:var(--bone);margin-top:6px;
+  }
+
+  /* ===== WHY / FEATURES ===== */
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--steel);border:1px solid var(--steel);border-radius:var(--radius-m);overflow:hidden;}
+  @media(max-width:900px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.feat-grid{grid-template-columns:1fr;}}
+  .feat-cell{background:var(--ink);padding:34px 28px;}
+  .feat-cell .prog-icon{margin-bottom:18px;}
+  .feat-cell p{color:var(--ash);font-size:14px;margin-top:8px;}
+
+  /* ===== TRAINING ZONES ===== */
+  .zone-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
+  @media(max-width:960px){.zone-strip{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.zone-strip{grid-template-columns:1fr;}}
+  .zone-card{
+    position:relative;aspect-ratio:3/4;border-radius:var(--radius-m);overflow:hidden;
+    background:linear-gradient(200deg,#f0e9d9,#e4dabf);
+    border:1px solid var(--steel);
+    display:flex;align-items:flex-end;padding:20px;
+    transition:border-color .2s ease;
+  }
+  .zone-card:hover{border-color:var(--brass);}
+  .zone-card .zname{font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--bone);text-transform:uppercase;}
+  @media(max-width:960px){.zone-card{aspect-ratio:16/10;}}
+
+  /* ===== MEMBERSHIP ===== */
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start;}
+  @media(max-width:900px){.plan-grid{grid-template-columns:1fr;}}
+  .plan-card{
+    background:var(--ink);border:1px solid var(--steel);border-radius:var(--radius-m);
+    padding:38px 32px;
+  }
+  .plan-card.rec{
+    border-color:var(--brass);background:linear-gradient(180deg,#fbf3e0,#f5ecd6);
+    position:relative;
+  }
+  .plan-card.rec .rec-tag{
+    position:absolute;top:-13px;left:32px;background:var(--brass);color:var(--ink);
+    font-size:11px;font-weight:800;letter-spacing:.06em;padding:5px 12px;border-radius:14px;
+  }
+  .plan-name{font-family:var(--font-display);font-size:26px;font-weight:800;color:var(--bone);letter-spacing:.02em;}
+  .plan-desc{color:var(--ash);font-size:14px;margin-top:6px;margin-bottom:24px;}
+  .plan-price{font-family:var(--font-display);font-size:22px;color:var(--brass);font-weight:700;margin-bottom:24px;}
+  .plan-list{margin-bottom:28px;}
+  .plan-list li{
+    font-size:14px;color:var(--bone);padding:10px 0;border-top:1px solid var(--steel);
+    display:flex;align-items:center;gap:10px;
+  }
+  .plan-list li:first-child{border-top:none;}
+  .plan-list li::before{content:"";width:5px;height:5px;background:var(--brass);border-radius:50%;flex-shrink:0;}
+
+  /* ===== TRANSFORMATION ===== */
+  .demo-flag{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;
+    color:var(--ash-dim);border:1px solid var(--steel);padding:5px 12px;border-radius:14px;margin-bottom:6px;
+  }
+  .transform-panel{
+    background:linear-gradient(120deg, var(--charcoal-2), var(--ink));
+    border:1px solid var(--steel);border-radius:var(--radius-m);
+    padding:64px 48px;text-align:center;
+  }
+  @media(max-width:640px){.transform-panel{padding:44px 26px;}}
+  .transform-panel h2{max-width:16ch;margin:0 auto 18px;}
+  .transform-panel p{color:var(--ash);max-width:50ch;margin:0 auto 34px;font-size:16px;}
+
+  /* ===== GALLERY ===== */
+  .masonry{
+    columns:4 220px;column-gap:14px;
+  }
+  @media(max-width:640px){.masonry{columns:2 160px;}}
+  .g-item{
+    break-inside:avoid;margin-bottom:14px;border-radius:var(--radius-s);overflow:hidden;
+    position:relative;border:1px solid var(--steel);
+    background:linear-gradient(155deg,#efe8d8,#e2d9c2);
+    display:flex;align-items:flex-end;padding:16px;
+  }
+  .g-item.h1{aspect-ratio:3/4;}
+  .g-item.h2{aspect-ratio:1/1;}
+  .g-item.h3{aspect-ratio:4/5;}
+  .g-item span{
+    font-size:12.5px;font-weight:700;color:var(--bone);letter-spacing:.03em;
+    text-transform:uppercase;position:relative;z-index:2;
+  }
+  .g-item::before{
+    content:"";position:absolute;inset:0;background:linear-gradient(0deg, rgba(0,0,0,.06), transparent 55%);
+    transition:background .2s ease;
+  }
+  .g-item:hover::before{background:linear-gradient(0deg, rgba(169,118,31,.24), transparent 60%);}
+
+  /* ===== TESTIMONIALS ===== */
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:900px){.test-grid{grid-template-columns:1fr;}}
+  .test-card{background:var(--charcoal);border:1px solid var(--steel);border-radius:var(--radius-m);padding:30px 26px;}
+  .test-card .stars{color:var(--brass);letter-spacing:2px;margin-bottom:16px;font-size:15px;}
+  .test-card p{color:var(--bone);font-size:14.5px;margin-bottom:20px;}
+  .test-name{font-weight:700;font-size:14px;color:var(--bone);}
+  .test-role{font-size:12.5px;color:var(--ash-dim);}
+
+  /* ===== CONTACT ===== */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px;}}
+  .contact-info h2{margin-bottom:18px;}
+  .info-line{margin-bottom:26px;}
+  .info-line .k{font-size:12px;color:var(--ash-dim);letter-spacing:.08em;font-weight:600;margin-bottom:6px;}
+  .info-line .v{font-size:16px;color:var(--bone);}
+  .contact-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;}
+  .map-frame{
+    aspect-ratio:4/3;border-radius:var(--radius-m);border:1px solid var(--steel);
+    background:
+      linear-gradient(rgba(198,149,44,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(198,149,44,.05) 1px, transparent 1px),
+      linear-gradient(160deg,#f0e9d9,#e6dcc3);
+    background-size:32px 32px,32px 32px,cover;
+    position:relative;overflow:hidden;
+  }
+  .map-pin{
+    position:absolute;top:46%;left:52%;transform:translate(-50%,-50%);
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .map-pin .dot{width:18px;height:18px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 6px rgba(198,149,44,.2);}
+  .map-pin .label{margin-top:10px;background:var(--ink);border:1px solid var(--steel);padding:8px 14px;border-radius:var(--radius-s);font-size:12.5px;color:var(--bone);white-space:nowrap;}
+
+  /* ===== ENQUIRY FORM ===== */
+  .form-panel{
+    background:var(--charcoal-2);border:1px solid var(--steel);border-radius:var(--radius-m);
+    padding:44px;margin-top:70px;
+  }
+  @media(max-width:640px){.form-panel{padding:26px 22px;}}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 20px;}
+  @media(max-width:640px){.form-grid{grid-template-columns:1fr;}}
+  .form-grid .full{grid-column:1/-1;}
+  .form-note{font-size:12.5px;color:var(--ash-dim);margin-top:16px;}
+
+  /* ===== FINAL CTA ===== */
+  .final-cta{
+    text-align:center;padding:130px 0;
+    background:
+      radial-gradient(ellipse 70% 100% at 50% 0%, rgba(198,149,44,.12), transparent 60%),
+      var(--charcoal);
+    border-top:1px solid var(--steel);border-bottom:1px solid var(--steel);
+  }
+  .final-cta h2{max-width:16ch;margin:0 auto 16px;}
+  .final-cta p{color:var(--ash);font-size:17px;margin-bottom:36px;}
+
+  /* ===== FOOTER ===== */
+  footer{padding:70px 0 120px;}
+  @media(min-width:900px){footer{padding-bottom:70px;}}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;margin-bottom:50px;}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:34px;}}
+  .foot-brand{font-family:var(--font-display);font-weight:800;font-size:24px;text-transform:uppercase;margin-bottom:14px;}
+  .foot-desc{color:var(--ash-dim);font-size:14px;max-width:32ch;}
+  .foot-col h4{font-size:12.5px;letter-spacing:.08em;color:var(--ash-dim);margin-bottom:18px;font-weight:700;text-transform:uppercase;}
+  .foot-col li{margin-bottom:11px;}
+  .foot-col a{font-size:14px;color:var(--ash);transition:color .18s;}
+  .foot-col a:hover{color:var(--brass);}
+  .foot-social{display:flex;gap:12px;margin-top:18px;}
+  .foot-social a{
+    width:36px;height:36px;border:1px solid var(--steel);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--ash);transition:.18s;
+  }
+  .foot-social a:hover{border-color:var(--brass);color:var(--brass);}
+  .foot-bottom{
+    border-top:1px solid var(--steel);padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:12.5px;color:var(--ash-dim);
+  }
+
+  /* ===== FLOATING WHATSAPP ===== */
+  .wa-float{
+    position:fixed;right:22px;bottom:96px;z-index:90;
+    display:flex;align-items:center;gap:10px;
+    background:var(--brass);color:var(--ink);padding:13px 18px 13px 14px;
+    border-radius:30px;font-weight:700;font-size:13px;letter-spacing:.02em;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    transition:transform .18s ease;
+  }
+  .wa-float:hover{transform:translateY(-2px);}
+  @media(min-width:900px){.wa-float{bottom:28px;}}
+
+  /* ===== MOBILE BOTTOM NAV ===== */
+  .mobile-nav{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:95;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+    border-top:1px solid var(--steel);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    justify-content:space-between;gap:10px;
+  }
+  .mobile-nav a{
+    flex:1;text-align:center;padding:11px 6px;border-radius:var(--radius-s);
+    font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--bone);
+    border:1px solid var(--steel);display:flex;flex-direction:column;align-items:center;gap:4px;
+  }
+  .mobile-nav a.primary{background:var(--brass);color:var(--ink);border-color:var(--brass);}
+  @media(max-width:900px){.mobile-nav{display:flex;} body{padding-bottom:0;}}
+
+  .icon{width:22px;height:22px;display:block;}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">Payback<small>Defining Fitness</small></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#bmi">BMI Calculator</a>
+      <a href="#membership">Membership</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+919978220979" class="btn btn-outline">Call Now</a>
+      <a href="#enquiry" class="btn btn-primary">Join Now</a>
+    </div>
+    <button class="nav-burger" id="burgerBtn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-plate" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="dot"></span> Madhapar, Bhuj — Gujarat 370020</div>
+    <h1 class="hero-h">DEFINE YOUR<br>LIMITS. THEN<br><span class="accent">BREAK THEM.</span></h1>
+    <p class="hero-sub">Strength. Discipline. Results. A results-driven training environment built for people serious about their fitness.</p>
+    <div class="hero-cta">
+      <a href="#enquiry" class="btn btn-primary">Join Now</a>
+      <a href="#programs" class="btn btn-outline">Explore Programs</a>
+    </div>
+    <div class="trust-bar">
+      <div class="trust-item"><div class="num">4.9★</div><div class="lbl">Google Rating</div></div>
+      <div class="trust-item"><div class="num">1400+</div><div class="lbl">Reviews</div></div>
+      <div class="trust-item"><div class="num">Pro</div><div class="lbl">Fitness Training</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <span class="mark">01</span>
+        <span class="frame-label">Payback Gym — Madhapar, Bhuj</span>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">About Payback Gym</span>
+        <h2>MORE THAN A GYM. IT'S A COMMITMENT.</h2>
+        <p style="margin-top:22px;">Payback Gym was built around a simple idea: real results come from structured training, consistent effort and professional guidance — not shortcuts. Every program is designed to help members build strength, improve conditioning and move better in daily life.</p>
+        <p>Whether you're starting out or training with purpose, our floor is set up to support focused, distraction-free work: proper equipment, room to train, and coaching that pays attention to how you actually move.</p>
+        <div class="stat-row">
+          <div class="stat-card"><div class="n">1400+</div><div class="l">Reviews</div></div>
+          <div class="stat-card"><div class="n">Professional</div><div class="l">Training Approach</div></div>
+          <div class="stat-card"><div class="n">Modern</div><div class="l">Equipment</div></div>
+          <div class="stat-card"><div class="n">Community</div><div class="l">Fitness Culture</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section id="programs" class="alt-bg">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>TRAIN WITH PURPOSE.</h2>
+      <p>Six focused training tracks, each built for a different goal — pick one or combine them as you progress.</p>
+    </div>
+    <div class="card-grid" id="programsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ BMI CALCULATOR ============ -->
+<section id="bmi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Quick Screening Tool</span>
+      <h2>KNOW YOUR NUMBERS.</h2>
+      <p>Calculate your Body Mass Index and get a quick general screening result.</p>
+    </div>
+
+    <div class="bmi-panel reveal">
+      <form id="bmiForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="bmiAge">Age</label>
+            <input type="number" id="bmiAge" min="2" max="120" placeholder="e.g. 28" required>
+          </div>
+          <div class="field">
+            <label for="bmiGender">Gender</label>
+            <select id="bmiGender" required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bmiHeight">Height (cm)</label>
+            <input type="number" id="bmiHeight" min="80" max="250" placeholder="e.g. 172" required>
+          </div>
+          <div class="field">
+            <label for="bmiWeight">Weight (kg)</label>
+            <input type="number" id="bmiWeight" min="20" max="300" placeholder="e.g. 68" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Calculate BMI</button>
+      </form>
+
+      <div class="bmi-result" id="bmiResultWrap">
+        <p class="placeholder" id="bmiPlaceholder">Enter your details to see your BMI, category and a simple explanation.</p>
+        <div id="bmiOutput" style="display:none;">
+          <div class="bmi-score" id="bmiScoreNum">—</div>
+          <span class="bmi-cat" id="bmiCatTag">—</span>
+          <div class="bmi-scale" id="bmiScaleTrack">
+            <div class="seg" style="width:23%;background:#4a76a8;"></div>
+            <div class="seg" style="width:27%;background:#6f8f5c;"></div>
+            <div class="seg" style="width:25%;background:#c6952c;"></div>
+            <div class="seg" style="width:25%;background:#b5533f;"></div>
+            <div class="marker" id="bmiMarker" style="left:0%;"></div>
+          </div>
+          <p class="bmi-explain" id="bmiExplainText"></p>
+        </div>
+        <div class="bmi-minor-note" id="bmiMinorNote" style="display:none;">
+          For people under 18, BMI should be interpreted using age- and sex-specific growth charts by a qualified healthcare professional.
+        </div>
+        <p class="bmi-disclaimer">BMI is a general screening measure and does not replace professional medical advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY PAYBACK ============ -->
+<section class="alt-bg">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Difference</span>
+      <h2>WHY PAYBACK?</h2>
+    </div>
+    <div class="feat-grid" id="featGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TRAINING EXPERIENCE ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Floor</span>
+      <h2>THE TRAINING EXPERIENCE.</h2>
+      <p>Five zones, one focused environment — built to move you from warm-up to work set without friction.</p>
+    </div>
+    <div class="zone-strip" id="zoneGrid"></div>
+  </div>
+</section>
+
+<!-- ============ MEMBERSHIP ============ -->
+<section id="membership" class="alt-bg">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Membership</span>
+      <h2>CHOOSE YOUR COMMITMENT.</h2>
+    </div>
+    <div class="plan-grid" id="planGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TRANSFORMATION ============ -->
+<section>
+  <div class="wrap">
+    <div class="transform-panel reveal">
+      <span class="demo-flag">Demo Content</span>
+      <h2>YOUR JOURNEY STARTS HERE.</h2>
+      <p>Real change comes from consistent training over time. This section is demo/sample content only and does not depict actual Payback Gym members or results.</p>
+      <a href="#enquiry" class="btn btn-primary">Start Your Fitness Journey</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="alt-bg">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Space</span>
+      <h2>INSIDE PAYBACK.</h2>
+    </div>
+    <div class="masonry" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Demo Testimonials</span>
+      <h2>WHAT MEMBERS SAY.</h2>
+      <p>Sample content for demonstration purposes — not genuine customer reviews.</p>
+    </div>
+    <div class="test-grid" id="testGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="alt-bg">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>READY TO GET STARTED?</h2>
+        <div style="margin-top:30px;">
+          <div class="info-line">
+            <div class="k">Gym</div>
+            <div class="v">Payback Gym — Defining Fitness</div>
+          </div>
+          <div class="info-line">
+            <div class="k">Address</div>
+            <div class="v">Dwarkesh Complex, 1st Floor, near Shivam Park Baal Vatika Garden, Madhapar, Bhuj, Gujarat 370020, India</div>
+          </div>
+          <div class="info-line">
+            <div class="k">Phone</div>
+            <div class="v">+91 99782 20979</div>
+          </div>
+        </div>
+        <div class="contact-btns">
+          <a href="tel:+919978220979" class="btn btn-primary">Call Now</a>
+          <a href="https://wa.me/919978220979" target="_blank" rel="noopener" class="btn btn-outline">WhatsApp</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Payback+Gym+Defining+Fitness+Dwarkesh+Complex+Madhapar+Bhuj+Gujarat+370020" target="_blank" rel="noopener" class="btn btn-outline">Get Directions</a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <div class="map-pin">
+          <div class="dot"></div>
+          <div class="label">Madhapar, Bhuj — 370020</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-panel reveal" id="enquiry">
+      <span class="eyebrow">Enquiry Form</span>
+      <h3 style="margin-bottom:24px;">Request a callback</h3>
+      <form id="enquiryForm">
+        <div class="form-grid">
+          <div class="field"><label for="fName">Full Name</label><input type="text" id="fName" required></div>
+          <div class="field"><label for="fPhone">Phone Number</label><input type="tel" id="fPhone" required></div>
+          <div class="field">
+            <label for="fGoal">Fitness Goal</label>
+            <select id="fGoal" required>
+              <option value="">Select a goal</option>
+              <option>Weight Management</option>
+              <option>Muscle & Strength</option>
+              <option>General Fitness</option>
+              <option>Functional Fitness</option>
+              <option>Personal Training</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fTraining">Preferred Training</label>
+            <select id="fTraining" required>
+              <option value="">Select training type</option>
+              <option>Strength Training</option>
+              <option>Weight Training</option>
+              <option>Personal Training</option>
+              <option>Functional Training</option>
+              <option>Cardio Training</option>
+              <option>Not Sure Yet</option>
+            </select>
+          </div>
+          <div class="field full"><label for="fMessage">Message</label><input type="text" id="fMessage" placeholder="Anything else we should know?"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top:8px;">Request a Callback</button>
+        <p class="form-note">Submitting opens WhatsApp with your enquiry pre-filled, ready to send to Payback Gym.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final-cta">
+  <div class="wrap">
+    <h2>STOP WAITING.<br>START TRAINING.</h2>
+    <p>Your fitness journey starts with one decision.</p>
+    <a href="#enquiry" class="btn btn-primary">Join Payback Gym</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Payback Gym</div>
+        <p class="foot-desc">Defining Fitness — Madhapar, Bhuj. Strength, discipline and structured training for real results.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="https://wa.me/919978220979" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#bmi">BMI Calculator</a></li>
+          <li><a href="#membership">Membership</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919978220979">+91 99782 20979</a></li>
+          <li style="color:var(--ash-dim);font-size:14px;">Madhapar, Bhuj, Gujarat</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© <span id="yr"></span> Payback Gym — Defining Fitness. All rights reserved.</div>
+      <div>Website demo — content marked demo/sample is for illustration only.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a href="https://wa.me/919978220979" target="_blank" rel="noopener" class="wa-float">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+  Chat With Us
+</a>
+
+<!-- ============ MOBILE BOTTOM NAV ============ -->
+<nav class="mobile-nav">
+  <a href="tel:+919978220979">Call</a>
+  <a href="https://wa.me/919978220979" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="#enquiry" class="primary">Join Now</a>
+</nav>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---------- Programs data ---------- */
+const programs = [
+  {t:"Strength Training", d:"Build strength, power and overall physical performance."},
+  {t:"Weight Training", d:"Structured resistance training for members at different fitness levels."},
+  {t:"Personal Training", d:"Individual guidance and personalized workout support."},
+  {t:"Functional Training", d:"Improve movement, mobility, coordination and functional strength."},
+  {t:"Cardio Training", d:"Improve cardiovascular fitness and endurance."},
+  {t:"Weight Management", d:"Fitness-focused training and guidance for people working toward healthy weight goals."}
+];
+const icons = [
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 7v10M18 7v10M2 10v4M22 10v4M6 12h12"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M4 12h2M18 12h2M12 4v2M12 18v2"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M5 21c0-4 3-6.5 7-6.5S19 17 19 21"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l6-14M14 6l6 14M9 13h6"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h3l2-6 4 12 2-8 2 4h5"/></svg>',
+  '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v3M12 18v3M4.2 7l2.6 1.5M17.2 15.5l2.6 1.5M4.2 17l2.6-1.5M17.2 8.5l2.6-1.5"/><circle cx="12" cy="12" r="4"/></svg>'
+];
+document.getElementById('programsGrid').innerHTML = programs.map((p,i)=>`
+  <div class="prog-card reveal">
+    <div class="prog-icon">${icons[i]}</div>
+    <h3>${p.t}</h3>
+    <p>${p.d}</p>
+    <div class="card-link">Get Started →</div>
+  </div>`).join('');
+
+/* ---------- Why Payback ---------- */
+const features = [
+  {t:"Professional Equipment", d:"A floor equipped for structured strength and conditioning work."},
+  {t:"Experienced Trainers", d:"Guidance from trainers who pay attention to how you actually move."},
+  {t:"Personalized Guidance", d:"Programs that adapt to your goals and current fitness level."},
+  {t:"Strength & Conditioning", d:"A training approach built around progressive, measurable results."},
+  {t:"Clean Training Environment", d:"A well-maintained space that's ready to train in, every day."},
+  {t:"Supportive Fitness Community", d:"Train alongside members who are working toward similar goals."}
+];
+document.getElementById('featGrid').innerHTML = features.map((f,i)=>`
+  <div class="feat-cell reveal">
+    <div class="prog-icon">${icons[i]}</div>
+    <h3>${f.t}</h3>
+    <p>${f.d}</p>
+  </div>`).join('');
+
+/* ---------- Training zones ---------- */
+const zones = ["Strength Zone","Cardio Zone","Functional Training","Free Weights","Personal Training"];
+document.getElementById('zoneGrid').innerHTML = zones.map(z=>`
+  <div class="zone-card reveal"><div class="zname">${z}</div></div>`).join('');
+
+/* ---------- Membership plans ---------- */
+const plans = [
+  {name:"Basic", desc:"Gym Access", rec:false, items:["Full gym floor access","Standard operating hours","Locker access"]},
+  {name:"Pro", desc:"Gym Access + Trainer Guidance", rec:true, items:["Everything in Basic","Trainer-guided programming","Periodic progress check-ins"]},
+  {name:"Elite", desc:"Gym Access + Personal Training", rec:false, items:["Everything in Pro","1:1 personal training sessions","Priority scheduling"]}
+];
+document.getElementById('planGrid').innerHTML = plans.map(p=>`
+  <div class="plan-card reveal ${p.rec?'rec':''}">
+    ${p.rec?'<span class="rec-tag">Popular Choice</span>':''}
+    <div class="plan-name">${p.name}</div>
+    <div class="plan-desc">${p.desc}</div>
+    <div class="plan-price">Contact for Pricing</div>
+    <ul class="plan-list">${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <a href="#enquiry" class="btn ${p.rec?'btn-primary':'btn-outline'} btn-block">Join Now</a>
+  </div>`).join('');
+
+/* ---------- Gallery ---------- */
+const gallery = [
+  {l:"Gym Interior", h:"h1"},{l:"Weight Training", h:"h2"},{l:"Cardio Equipment", h:"h3"},
+  {l:"Workout Area", h:"h2"},{l:"Functional Training", h:"h1"},{l:"Training Sessions", h:"h3"},
+  {l:"Equipment", h:"h2"}
+];
+document.getElementById('galleryGrid').innerHTML = gallery.map(g=>`
+  <div class="g-item ${g.h}"><span>${g.l}</span></div>`).join('');
+
+/* ---------- Testimonials ---------- */
+const testimonials = [
+  {q:"The trainers actually correct your form instead of just handing you a plan. My squat has improved a lot since I joined.", n:"Demo Member", r:"Strength Training"},
+  {q:"Clean equipment, never overcrowded, and the functional training sessions are genuinely challenging in a good way.", n:"Demo Member", r:"Functional Training"},
+  {q:"Started with personal training to learn the basics properly before moving to group sessions. Worked well for me.", n:"Demo Member", r:"Personal Training"}
+];
+document.getElementById('testGrid').innerHTML = testimonials.map(t=>`
+  <div class="test-card reveal">
+    <div class="stars">★★★★★</div>
+    <p>"${t.q}"</p>
+    <div class="test-name">${t.n}</div>
+    <div class="test-role">${t.r} — Demo Testimonial</div>
+  </div>`).join('');
+
+/* ---------- Scroll reveal ---------- */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- BMI calculator ---------- */
+document.getElementById('bmiForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const age = parseFloat(document.getElementById('bmiAge').value);
+  const heightCm = parseFloat(document.getElementById('bmiHeight').value);
+  const weightKg = parseFloat(document.getElementById('bmiWeight').value);
+  if(!age || !heightCm || !weightKg) return;
+
+  const h = heightCm/100;
+  const bmi = weightKg/(h*h);
+  const bmiRounded = Math.round(bmi*10)/10;
+
+  document.getElementById('bmiPlaceholder').style.display='none';
+
+  if(age < 18){
+    document.getElementById('bmiOutput').style.display='none';
+    document.getElementById('bmiMinorNote').style.display='block';
+    return;
+  }
+  document.getElementById('bmiMinorNote').style.display='none';
+  document.getElementById('bmiOutput').style.display='block';
+  document.getElementById('bmiScoreNum').textContent = bmiRounded;
+
+  let cat, cls, explain, markerPct;
+  if(bmi < 18.5){
+    cat="Underweight"; cls="cat-under";
+    explain="Your BMI falls below the typical range. Consider speaking with a healthcare professional about a balanced nutrition and training plan to reach a healthy weight.";
+    markerPct = Math.max(2, (bmi/18.5)*23);
+  } else if(bmi < 25){
+    cat="Normal Range"; cls="cat-normal";
+    explain="Your BMI falls within the typical healthy range for adults. Structured training can help you maintain and build on this.";
+    markerPct = 23 + ((bmi-18.5)/(24.9-18.5))*27;
+  } else if(bmi < 30){
+    cat="Overweight"; cls="cat-over";
+    explain="Your BMI is above the typical range. A structured training and nutrition plan can help you work toward a healthier range over time.";
+    markerPct = 50 + ((bmi-25)/(29.9-25))*25;
+  } else {
+    cat="Obesity"; cls="cat-obese";
+    explain="Your BMI falls in the higher range. We'd recommend speaking with a healthcare professional and starting a guided, structured training program.";
+    markerPct = Math.min(97, 75 + ((bmi-30)/15)*25);
+  }
+  const tag = document.getElementById('bmiCatTag');
+  tag.textContent = cat;
+  tag.className = 'bmi-cat ' + cls;
+  document.getElementById('bmiExplainText').textContent = explain;
+  document.getElementById('bmiMarker').style.left = markerPct + '%';
+});
+
+/* ---------- Enquiry form -> WhatsApp ---------- */
+document.getElementById('enquiryForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const goal = document.getElementById('fGoal').value;
+  const training = document.getElementById('fTraining').value;
+  const message = document.getElementById('fMessage').value.trim();
+
+  const text =
+`New Enquiry — Payback Gym
+Name: ${name}
+Phone: ${phone}
+Fitness Goal: ${goal}
+Preferred Training: ${training}
+Message: ${message || '-'}`;
+
+  const url = 'https://wa.me/919978220979?text=' + encodeURIComponent(text);
+  window.open(url, '_blank', 'noopener');
+});
+
+/* ---------- Mobile burger -> scroll to nav links area (simple toggle) ---------- */
+document.getElementById('burgerBtn').addEventListener('click', function(){
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>
